@@ -1,0 +1,6 @@
+name,position,monthly_salary
+Mykola,dev,100
+Antonina,qa,90
+Olha,retired,20
+Snir,ds,200.0
+Bar,ds,200.0
