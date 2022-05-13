@@ -1,6 +1,8 @@
 import dataclasses
 
-TAX_RATE = 0.25
+SALARY_LOW_THRESHOLD = 100
+TAX_RATE_LOW = 0.25
+TAX_RATE_HIGH = 0.3
 
 
 @dataclasses.dataclass
@@ -10,4 +12,10 @@ class Employee:
     monthly_salary: float
 
     def get_annual_salary_budget(self):
-        return (self.monthly_salary * (12 + 1)) * (1 + TAX_RATE)
+        if self.monthly_salary < SALARY_LOW_THRESHOLD:
+            tax_rate = TAX_RATE_LOW
+        else:
+            tax_rate = TAX_RATE_HIGH
+
+        return self.monthly_salary * 13 * (1 + tax_rate)
+
