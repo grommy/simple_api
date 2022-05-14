@@ -4,7 +4,7 @@ from parameterized import parameterized
 
 
 class TestSalaryCalc(TestCase):
-    URL = "http://127.0.0.1:5000/salary"
+    URL = "http://192.168.1.135:5000/salary"
 
     @parameterized.expand([
         ["Mykola",  1690],
