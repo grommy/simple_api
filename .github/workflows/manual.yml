@@ -1,25 +1,23 @@
 # This is a basic workflow that is manually triggered
 
-name: Manual workflow
+name: Run unittests
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-  workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
-        required: true
+  pull_request:
+    branches:
+      - master
+      - 'releases/**'
+  push:
+    branches:
+      - master
+      - 'releases/**'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "greet"
-  greet:
+  run_unittests:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -32,5 +30,5 @@ jobs:
       
     # Runs a single command using the runners shell
     - name: Run unittests
-      run: echo "Hello ${{ github.event.inputs.name }}" && ls && python3 -m unittest tests/test_salary_calc_unit.py
+      run: echo "Hello ${{ github.event.inputs.name }}" && python3 -m unittest tests/test_salary_calc_unit.py
       
