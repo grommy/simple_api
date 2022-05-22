@@ -10,7 +10,7 @@ class TestSalaryCalc(TestCase):
         self.assertEqual(1690, salary_100.get_annual_salary_budget())
 
     def test_low_salary(self):
-        low_salary = Employee("antonina", "t", 99)
+        low_salary = Employee("antonina", "t", 99.0)
         self.assertEqual(1608.75, low_salary.get_annual_salary_budget())
 
     def test_high_salary(self):
