@@ -25,7 +25,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: Checkout branch
+      uses: actions/checkout@v2.4.2
+      with:
+        repository: ${{ github.repository }}
+      
     # Runs a single command using the runners shell
     - name: Run unittests
-      run: echo "Hello ${{ github.event.inputs.name }}" && python3 -m unittest tests/test_salary_calc_unit.py
+      run: echo "Hello ${{ github.event.inputs.name }}" && ls && python3 -m unittest tests/test_salary_calc_unit.py
       
